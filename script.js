@@ -30,10 +30,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Handle window resize - close menu on returning to desktop view
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      menuToggle.classList.remove('active');
-      sidebar.classList.remove('active');
-    }
-  });
+  // Removed to keep sidebar toggleable on all screen sizes
 });
