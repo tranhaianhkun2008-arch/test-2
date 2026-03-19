@@ -145,6 +145,11 @@ ul {
   padding-left: 20px;
 }
 
+details details ul {
+  text-align: center;
+  padding-left: 0;
+}
+
 ul li {
   animation: fadeInItem 0.5s ease-out forwards;
   opacity: 0;
