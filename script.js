@@ -29,6 +29,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Handle window resize - close menu on returning to desktop view
-  // Removed to keep sidebar toggleable on all screen sizes
+  // Section focus functionality
+  const sections = document.querySelectorAll('section');
+
+  function updateFocus() {
+    const viewportCenter = window.innerHeight / 3 + window.scrollY;
+    let focusSection = null;
+    let minDistance = Infinity;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionCenter = rect.top + window.scrollY + rect.height / 2;
+      const distance = Math.abs(viewportCenter - sectionCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        focusSection = section;
+      }
+    });
+
+    sections.forEach(sec => {
+      if (sec === focusSection) {
+        sec.classList.remove('blurred');
+      } else {
+        sec.classList.add('blurred');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateFocus);
+  updateFocus(); // Initial call
 });

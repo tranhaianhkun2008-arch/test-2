@@ -180,6 +180,20 @@ html { scroll-behavior: smooth; }
 a { color: #0645ad; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-@media (max-width: 768px) 
+@media (max-width: 768px) {
   .sidebar { width: 100%; max-width: 280px; }
   .main-content { padding: 60px 10px; }
+}
+
+/* Blurred sections */
+section {
+  margin-bottom: 20px;
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 1; 
+  transition: filter 0.3s ease, opacity 0.3s ease; 
+}
+
+section.blurred {
+  filter: blur(2px);
+  opacity: 0.3;
+}
